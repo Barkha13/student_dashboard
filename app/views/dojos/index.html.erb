@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Index</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+    <% if flash[:success] %>
+	    <p><%= flash[:success] %></p>
+    <% end %>
+        <h1>Listing <%= @count%> Dojos</h1>
+        <table class="table">
+            <tr>
+                <td>
+                Coding Dojo Branch
+                </td>
+                <td>
+                Street
+                </td>
+                <td>
+                City
+                </td>
+                <td>
+                State
+                </td>
+                <td>
+                Actions
+                </td>
+            </tr>
+            <% @dojos.each do |dojo| %>
+            <tr>
+                <td>
+                <%= dojo.branch %>
+                </td>
+                <td>
+                <%= dojo.street %>
+                </td>
+                <td>
+                <%= dojo.city %>
+                </td>
+                <td>
+                <%= dojo.state %>
+                </td>
+                <td>
+                <a href="dojos/<%= dojo.id %>/students">Show</a>
+                <a href="dojos/<%= dojo.id %>/edit">Edit</a>
+                <a href="dojos/<%= dojo.id %>" data-method="delete">Destroy</a>
+                </td>
+            </tr>
+            <% end %>
+        </table>
+    <br><br>
+    <a href="dojos/new">New Dojo</a>
+    </div>
+</body>
+</html>

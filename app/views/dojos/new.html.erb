@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>New Dojo</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<h1>New Dojo</h1>
+<br>
+    <% if flash[:error] %>
+	    <p><%= flash[:error] %></p>
+    <% end %>
+    <form action="new" method="post" style="width:300px; text-align:right;">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        Branch: <input type="text" name="dojo[branch]"><br><br>
+        Street: <input type="text" name="dojo[street]"><br><br>
+        City: <input type="text" name="dojo[city]"><br><br>
+        State: <input type="text" name="dojo[state]"><br><br>
+        <input type="submit" Value="Create">
+    </form>
+    <br>
+    <a href="/">Go Back</a>
+</html>

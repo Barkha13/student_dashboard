@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Edit Dojo</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<h1>Editing <%= @edit_dojo.branch%></h1>
+<br>
+    <% if flash[:error] %>
+	    <p><%= flash[:error] %></p>
+    <% end %>
+    <form action="/dojos/<%= @edit_dojo.id%>" method="post" style="width:300px; text-align:right;">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="patch">
+        Branch: <input type="text" name="dojo[branch]" value="<%= @edit_dojo.branch%>"><br><br>
+        Street: <input type="text" name="dojo[street]" value="<%= @edit_dojo.street%>"><br><br>
+        City: <input type="text" name="dojo[city]" value="<%= @edit_dojo.city%>"><br><br>
+        State: <input type="text" name="dojo[state]" value="<%= @edit_dojo.state%>"><br><br>
+        <input type="submit" Value="Update">
+    </form>
+    <br><br>
+    <a href="/">Home</a> <a href="/dojos/<%= @edit_dojo.id %>">Show</a>
+</html>
